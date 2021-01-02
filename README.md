@@ -74,7 +74,7 @@ ctx = context.WithValue(context.Background(), sw.ContextOperationServerVariables
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://www.cityfalcon.com/webapi/v1*
+All URIs are relative to *https://www.cityfalcon.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

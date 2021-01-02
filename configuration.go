@@ -105,7 +105,7 @@ func NewConfiguration() *Configuration {
 		Debug:         false,
 		Servers: ServerConfigurations{
 			{
-				URL:         "https://www.cityfalcon.com/webapi/v1/",
+				URL:         "https://www.cityfalcon.com",
 				Description: "No description provided",
 			},
 		},

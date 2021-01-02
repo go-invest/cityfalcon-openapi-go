@@ -1,6 +1,6 @@
 # \CompaniesApi
 
-All URIs are relative to *https://www.cityfalcon.com/webapi/v1*
+All URIs are relative to *https://www.cityfalcon.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ListStories
 
-> Stories ListStories(ctx).OrderBy(orderBy).FoldSimilarStories(foldSimilarStories).TimeFilter(timeFilter).Query(query).Categories(categories).Languages(languages).MinScore(minScore).Execute()
+> Stories ListStories(ctx).OrderBy(orderBy).Categories(categories).Languages(languages).MinScore(minScore).FoldSimilarStories(foldSimilarStories).TimeFilter(timeFilter).Query(query).Execute()
 
 
 
@@ -30,16 +30,16 @@ import (
 
 func main() {
     orderBy := "orderBy_example" // string | string order_by (name or id) of the stories
-    foldSimilarStories := "foldSimilarStories_example" // string | string fold_similar_stories (name or id) of the stories
-    timeFilter := "timeFilter_example" // string | string time_filter (name or id) of the stories
-    query := "query_example" // string | string query (name or id) of the stories
     categories := "categories_example" // string | string categories (name or id) of the stories (optional)
     languages := "languages_example" // string | string languages (name or id) of the stories (optional)
     minScore := "minScore_example" // string | string min_score (name or id) of the stories (optional)
+    foldSimilarStories := "foldSimilarStories_example" // string | string fold_similar_stories (name or id) of the stories (optional)
+    timeFilter := "timeFilter_example" // string | string time_filter (name or id) of the stories (optional)
+    query := "query_example" // string | string query (name or id) of the stories (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CompaniesApi.ListStories(context.Background()).OrderBy(orderBy).FoldSimilarStories(foldSimilarStories).TimeFilter(timeFilter).Query(query).Categories(categories).Languages(languages).MinScore(minScore).Execute()
+    resp, r, err := api_client.CompaniesApi.ListStories(context.Background()).OrderBy(orderBy).Categories(categories).Languages(languages).MinScore(minScore).FoldSimilarStories(foldSimilarStories).TimeFilter(timeFilter).Query(query).Execute()
     if err.Error() != "" {
         fmt.Fprintf(os.Stderr, "Error when calling `CompaniesApi.ListStories``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,12 +61,12 @@ Other parameters are passed through a pointer to a apiListStoriesRequest struct 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderBy** | **string** | string order_by (name or id) of the stories | 
- **foldSimilarStories** | **string** | string fold_similar_stories (name or id) of the stories | 
- **timeFilter** | **string** | string time_filter (name or id) of the stories | 
- **query** | **string** | string query (name or id) of the stories | 
  **categories** | **string** | string categories (name or id) of the stories | 
  **languages** | **string** | string languages (name or id) of the stories | 
  **minScore** | **string** | string min_score (name or id) of the stories | 
+ **foldSimilarStories** | **string** | string fold_similar_stories (name or id) of the stories | 
+ **timeFilter** | **string** | string time_filter (name or id) of the stories | 
+ **query** | **string** | string query (name or id) of the stories | 
 
 ### Return type
 

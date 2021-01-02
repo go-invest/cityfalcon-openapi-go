@@ -16,9 +16,9 @@ import (
 
 // Stories struct for Stories
 type Stories struct {
-	NextPageToken *string `json:"next_page_token,omitempty"`
-	ExpandedQuery *string `json:"expanded_query,omitempty"`
-	Stories       *Story  `json:"stories,omitempty"`
+	NextPageToken *string  `json:"next_page_token,omitempty"`
+	ExpandedQuery *string  `json:"expanded_query,omitempty"`
+	Stories       *[]Story `json:"stories,omitempty"`
 }
 
 // NewStories instantiates a new Stories object
@@ -103,9 +103,9 @@ func (o *Stories) SetExpandedQuery(v string) {
 }
 
 // GetStories returns the Stories field value if set, zero value otherwise.
-func (o *Stories) GetStories() Story {
+func (o *Stories) GetStories() []Story {
 	if o == nil || o.Stories == nil {
-		var ret Story
+		var ret []Story
 		return ret
 	}
 	return *o.Stories
@@ -113,7 +113,7 @@ func (o *Stories) GetStories() Story {
 
 // GetStoriesOk returns a tuple with the Stories field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Stories) GetStoriesOk() (*Story, bool) {
+func (o *Stories) GetStoriesOk() (*[]Story, bool) {
 	if o == nil || o.Stories == nil {
 		return nil, false
 	}
@@ -129,8 +129,8 @@ func (o *Stories) HasStories() bool {
 	return false
 }
 
-// SetStories gets a reference to the given Story and assigns it to the Stories field.
-func (o *Stories) SetStories(v Story) {
+// SetStories gets a reference to the given []Story and assigns it to the Stories field.
+func (o *Stories) SetStories(v []Story) {
 	o.Stories = &v
 }
 

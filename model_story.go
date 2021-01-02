@@ -12,43 +12,42 @@ package openapi
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // Story struct for Story
 type Story struct {
-	Id                   *int64         `json:"id,omitempty"`
-	Uuid                 *string        `json:"uuid,omitempty"`
-	UuidTitle            *string        `json:"uuid_title,omitempty"`
-	PublishTime          *string        `json:"publishTime,omitempty"`
-	PublishTimeDiff      *float32       `json:"publishTimeDiff,omitempty"`
-	Title                *string        `json:"title,omitempty"`
-	Description          *string        `json:"description,omitempty"`
-	FullText             *bool          `json:"full_text,omitempty"`
-	Category             *string        `json:"category,omitempty"`
-	Url                  *string        `json:"url,omitempty"`
-	ExpandedUrl          *string        `json:"expanded_url,omitempty"`
-	ImageUrls            NullableString `json:"imageUrls,omitempty"`
-	Lang                 *bool          `json:"lang,omitempty"`
-	Score                *int32         `json:"score,omitempty"`
-	DuplicatesCount      *int32         `json:"duplicatesCount,omitempty"`
-	ReadCount            *int32         `json:"readCount,omitempty"`
-	Paywall              *bool          `json:"paywall,omitempty"`
-	RegistrationRequired *bool          `json:"registrationRequired,omitempty"`
-	AuthorImageUrl       *string        `json:"author_image_url,omitempty"`
-	AuthorScreenName     *string        `json:"author_screen_name,omitempty"`
-	AuthorFollowersCount *int32         `json:"author_followers_count,omitempty"`
-	FriendsCount         *int32         `json:"friends_count,omitempty"`
-	DomainId             *int32         `json:"domain_id,omitempty"`
-	DomainName           *string        `json:"domain_name,omitempty"`
-	DomainHost           *string        `json:"domain_host,omitempty"`
-	DomainCachedLogoUrl  *string        `json:"domain_cached_logo_url,omitempty"`
-	ShowPath             *string        `json:"showPath,omitempty"`
-	Type                 *string        `json:"type,omitempty"`
-	Liked                *bool          `json:"liked,omitempty"`
-	Disliked             *bool          `json:"disliked,omitempty"`
-	Bookmarked           *bool          `json:"bookmarked,omitempty"`
-	SimilarStoriesCount  *int32         `json:"similar_stories_count,omitempty"`
-	Score                *float32       `json:"_score,omitempty"`
+	Id                   *int64     `json:"id,omitempty"`
+	Uuid                 *string    `json:"uuid,omitempty"`
+	UuidTitle            *string    `json:"uuid_title,omitempty"`
+	PublishTime          *time.Time `json:"publishTime,omitempty"`
+	PublishTimeDiff      *float32   `json:"publishTimeDiff,omitempty"`
+	Title                *string    `json:"title,omitempty"`
+	Description          *string    `json:"description,omitempty"`
+	FullText             *bool      `json:"full_text,omitempty"`
+	Category             *string    `json:"category,omitempty"`
+	Url                  *string    `json:"url,omitempty"`
+	ExpandedUrl          *string    `json:"expanded_url,omitempty"`
+	Lang                 *string    `json:"lang,omitempty"`
+	DuplicatesCount      *int32     `json:"duplicatesCount,omitempty"`
+	ReadCount            *int32     `json:"readCount,omitempty"`
+	Paywall              *bool      `json:"paywall,omitempty"`
+	RegistrationRequired *bool      `json:"registrationRequired,omitempty"`
+	AuthorImageUrl       *string    `json:"author_image_url,omitempty"`
+	AuthorScreenName     *string    `json:"author_screen_name,omitempty"`
+	AuthorFollowersCount *int32     `json:"author_followers_count,omitempty"`
+	FriendsCount         *int32     `json:"friends_count,omitempty"`
+	DomainId             *int32     `json:"domain_id,omitempty"`
+	DomainName           *string    `json:"domain_name,omitempty"`
+	DomainHost           *string    `json:"domain_host,omitempty"`
+	DomainCachedLogoUrl  *string    `json:"domain_cached_logo_url,omitempty"`
+	ShowPath             *string    `json:"showPath,omitempty"`
+	Type                 *string    `json:"type,omitempty"`
+	Liked                *bool      `json:"liked,omitempty"`
+	Disliked             *bool      `json:"disliked,omitempty"`
+	Bookmarked           *bool      `json:"bookmarked,omitempty"`
+	SimilarStoriesCount  *int32     `json:"similar_stories_count,omitempty"`
+	Score                *float32   `json:"_score,omitempty"`
 }
 
 // NewStory instantiates a new Story object
@@ -165,9 +164,9 @@ func (o *Story) SetUuidTitle(v string) {
 }
 
 // GetPublishTime returns the PublishTime field value if set, zero value otherwise.
-func (o *Story) GetPublishTime() string {
+func (o *Story) GetPublishTime() time.Time {
 	if o == nil || o.PublishTime == nil {
-		var ret string
+		var ret time.Time
 		return ret
 	}
 	return *o.PublishTime
@@ -175,7 +174,7 @@ func (o *Story) GetPublishTime() string {
 
 // GetPublishTimeOk returns a tuple with the PublishTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Story) GetPublishTimeOk() (*string, bool) {
+func (o *Story) GetPublishTimeOk() (*time.Time, bool) {
 	if o == nil || o.PublishTime == nil {
 		return nil, false
 	}
@@ -191,8 +190,8 @@ func (o *Story) HasPublishTime() bool {
 	return false
 }
 
-// SetPublishTime gets a reference to the given string and assigns it to the PublishTime field.
-func (o *Story) SetPublishTime(v string) {
+// SetPublishTime gets a reference to the given time.Time and assigns it to the PublishTime field.
+func (o *Story) SetPublishTime(v time.Time) {
 	o.PublishTime = &v
 }
 
@@ -420,53 +419,10 @@ func (o *Story) SetExpandedUrl(v string) {
 	o.ExpandedUrl = &v
 }
 
-// GetImageUrls returns the ImageUrls field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Story) GetImageUrls() string {
-	if o == nil || o.ImageUrls.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.ImageUrls.Get()
-}
-
-// GetImageUrlsOk returns a tuple with the ImageUrls field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Story) GetImageUrlsOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ImageUrls.Get(), o.ImageUrls.IsSet()
-}
-
-// HasImageUrls returns a boolean if a field has been set.
-func (o *Story) HasImageUrls() bool {
-	if o != nil && o.ImageUrls.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetImageUrls gets a reference to the given NullableString and assigns it to the ImageUrls field.
-func (o *Story) SetImageUrls(v string) {
-	o.ImageUrls.Set(&v)
-}
-
-// SetImageUrlsNil sets the value for ImageUrls to be an explicit nil
-func (o *Story) SetImageUrlsNil() {
-	o.ImageUrls.Set(nil)
-}
-
-// UnsetImageUrls ensures that no value is present for ImageUrls, not even an explicit nil
-func (o *Story) UnsetImageUrls() {
-	o.ImageUrls.Unset()
-}
-
 // GetLang returns the Lang field value if set, zero value otherwise.
-func (o *Story) GetLang() bool {
+func (o *Story) GetLang() string {
 	if o == nil || o.Lang == nil {
-		var ret bool
+		var ret string
 		return ret
 	}
 	return *o.Lang
@@ -474,7 +430,7 @@ func (o *Story) GetLang() bool {
 
 // GetLangOk returns a tuple with the Lang field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Story) GetLangOk() (*bool, bool) {
+func (o *Story) GetLangOk() (*string, bool) {
 	if o == nil || o.Lang == nil {
 		return nil, false
 	}
@@ -490,41 +446,9 @@ func (o *Story) HasLang() bool {
 	return false
 }
 
-// SetLang gets a reference to the given bool and assigns it to the Lang field.
-func (o *Story) SetLang(v bool) {
+// SetLang gets a reference to the given string and assigns it to the Lang field.
+func (o *Story) SetLang(v string) {
 	o.Lang = &v
-}
-
-// GetScore returns the Score field value if set, zero value otherwise.
-func (o *Story) GetScore() int32 {
-	if o == nil || o.Score == nil {
-		var ret int32
-		return ret
-	}
-	return *o.Score
-}
-
-// GetScoreOk returns a tuple with the Score field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Story) GetScoreOk() (*int32, bool) {
-	if o == nil || o.Score == nil {
-		return nil, false
-	}
-	return o.Score, true
-}
-
-// HasScore returns a boolean if a field has been set.
-func (o *Story) HasScore() bool {
-	if o != nil && o.Score != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetScore gets a reference to the given int32 and assigns it to the Score field.
-func (o *Story) SetScore(v int32) {
-	o.Score = &v
 }
 
 // GetDuplicatesCount returns the DuplicatesCount field value if set, zero value otherwise.
@@ -1170,14 +1094,8 @@ func (o Story) MarshalJSON() ([]byte, error) {
 	if o.ExpandedUrl != nil {
 		toSerialize["expanded_url"] = o.ExpandedUrl
 	}
-	if o.ImageUrls.IsSet() {
-		toSerialize["imageUrls"] = o.ImageUrls.Get()
-	}
 	if o.Lang != nil {
 		toSerialize["lang"] = o.Lang
-	}
-	if o.Score != nil {
-		toSerialize["score"] = o.Score
 	}
 	if o.DuplicatesCount != nil {
 		toSerialize["duplicatesCount"] = o.DuplicatesCount

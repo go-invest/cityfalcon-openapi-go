@@ -30,28 +30,16 @@ type ApiListStoriesRequest struct {
 	ctx                _context.Context
 	ApiService         *CompaniesApiService
 	orderBy            *string
-	foldSimilarStories *string
-	timeFilter         *string
-	query              *string
 	categories         *string
 	languages          *string
 	minScore           *string
+	foldSimilarStories *string
+	timeFilter         *string
+	query              *string
 }
 
 func (r ApiListStoriesRequest) OrderBy(orderBy string) ApiListStoriesRequest {
 	r.orderBy = &orderBy
-	return r
-}
-func (r ApiListStoriesRequest) FoldSimilarStories(foldSimilarStories string) ApiListStoriesRequest {
-	r.foldSimilarStories = &foldSimilarStories
-	return r
-}
-func (r ApiListStoriesRequest) TimeFilter(timeFilter string) ApiListStoriesRequest {
-	r.timeFilter = &timeFilter
-	return r
-}
-func (r ApiListStoriesRequest) Query(query string) ApiListStoriesRequest {
-	r.query = &query
 	return r
 }
 func (r ApiListStoriesRequest) Categories(categories string) ApiListStoriesRequest {
@@ -64,6 +52,18 @@ func (r ApiListStoriesRequest) Languages(languages string) ApiListStoriesRequest
 }
 func (r ApiListStoriesRequest) MinScore(minScore string) ApiListStoriesRequest {
 	r.minScore = &minScore
+	return r
+}
+func (r ApiListStoriesRequest) FoldSimilarStories(foldSimilarStories string) ApiListStoriesRequest {
+	r.foldSimilarStories = &foldSimilarStories
+	return r
+}
+func (r ApiListStoriesRequest) TimeFilter(timeFilter string) ApiListStoriesRequest {
+	r.timeFilter = &timeFilter
+	return r
+}
+func (r ApiListStoriesRequest) Query(query string) ApiListStoriesRequest {
+	r.query = &query
 	return r
 }
 
@@ -114,18 +114,6 @@ func (a *CompaniesApiService) ListStoriesExecute(r ApiListStoriesRequest) (Stori
 		executionError.error = "orderBy is required and must be specified"
 		return localVarReturnValue, nil, executionError
 	}
-	if r.foldSimilarStories == nil {
-		executionError.error = "foldSimilarStories is required and must be specified"
-		return localVarReturnValue, nil, executionError
-	}
-	if r.timeFilter == nil {
-		executionError.error = "timeFilter is required and must be specified"
-		return localVarReturnValue, nil, executionError
-	}
-	if r.query == nil {
-		executionError.error = "query is required and must be specified"
-		return localVarReturnValue, nil, executionError
-	}
 
 	if r.categories != nil {
 		localVarQueryParams.Add("categories", parameterToString(*r.categories, ""))
@@ -137,9 +125,15 @@ func (a *CompaniesApiService) ListStoriesExecute(r ApiListStoriesRequest) (Stori
 	if r.minScore != nil {
 		localVarQueryParams.Add("min_score", parameterToString(*r.minScore, ""))
 	}
-	localVarQueryParams.Add("fold_similar_stories", parameterToString(*r.foldSimilarStories, ""))
-	localVarQueryParams.Add("time_filter", parameterToString(*r.timeFilter, ""))
-	localVarQueryParams.Add("query", parameterToString(*r.query, ""))
+	if r.foldSimilarStories != nil {
+		localVarQueryParams.Add("fold_similar_stories", parameterToString(*r.foldSimilarStories, ""))
+	}
+	if r.timeFilter != nil {
+		localVarQueryParams.Add("time_filter", parameterToString(*r.timeFilter, ""))
+	}
+	if r.query != nil {
+		localVarQueryParams.Add("query", parameterToString(*r.query, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

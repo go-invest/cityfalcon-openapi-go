@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NextPageToken** | Pointer to **string** |  | [optional] 
 **ExpandedQuery** | Pointer to **string** |  | [optional] 
-**Stories** | Pointer to [**Story**](story.md) |  | [optional] 
+**Stories** | Pointer to [**[]Story**](Story.md) |  | [optional] 
 
 ## Methods
 
@@ -79,20 +79,20 @@ HasExpandedQuery returns a boolean if a field has been set.
 
 ### GetStories
 
-`func (o *Stories) GetStories() Story`
+`func (o *Stories) GetStories() []Story`
 
 GetStories returns the Stories field if non-nil, zero value otherwise.
 
 ### GetStoriesOk
 
-`func (o *Stories) GetStoriesOk() (*Story, bool)`
+`func (o *Stories) GetStoriesOk() (*[]Story, bool)`
 
 GetStoriesOk returns a tuple with the Stories field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStories
 
-`func (o *Stories) SetStories(v Story)`
+`func (o *Stories) SetStories(v []Story)`
 
 SetStories sets Stories field to given value.
 

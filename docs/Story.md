@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **int64** |  | [optional] 
 **Uuid** | Pointer to **string** |  | [optional] 
 **UuidTitle** | Pointer to **string** |  | [optional] 
-**PublishTime** | Pointer to **string** |  | [optional] 
+**PublishTime** | Pointer to **time.Time** |  | [optional] 
 **PublishTimeDiff** | Pointer to **float32** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
@@ -15,9 +15,7 @@ Name | Type | Description | Notes
 **Category** | Pointer to **string** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
 **ExpandedUrl** | Pointer to **string** |  | [optional] 
-**ImageUrls** | Pointer to **NullableString** |  | [optional] 
-**Lang** | Pointer to **bool** |  | [optional] 
-**Score** | Pointer to **int32** |  | [optional] 
+**Lang** | Pointer to **string** |  | [optional] 
 **DuplicatesCount** | Pointer to **int32** |  | [optional] 
 **ReadCount** | Pointer to **int32** |  | [optional] 
 **Paywall** | Pointer to **bool** |  | [optional] 
@@ -134,20 +132,20 @@ HasUuidTitle returns a boolean if a field has been set.
 
 ### GetPublishTime
 
-`func (o *Story) GetPublishTime() string`
+`func (o *Story) GetPublishTime() time.Time`
 
 GetPublishTime returns the PublishTime field if non-nil, zero value otherwise.
 
 ### GetPublishTimeOk
 
-`func (o *Story) GetPublishTimeOk() (*string, bool)`
+`func (o *Story) GetPublishTimeOk() (*time.Time, bool)`
 
 GetPublishTimeOk returns a tuple with the PublishTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPublishTime
 
-`func (o *Story) SetPublishTime(v string)`
+`func (o *Story) SetPublishTime(v time.Time)`
 
 SetPublishTime sets PublishTime field to given value.
 
@@ -332,57 +330,22 @@ SetExpandedUrl sets ExpandedUrl field to given value.
 
 HasExpandedUrl returns a boolean if a field has been set.
 
-### GetImageUrls
-
-`func (o *Story) GetImageUrls() string`
-
-GetImageUrls returns the ImageUrls field if non-nil, zero value otherwise.
-
-### GetImageUrlsOk
-
-`func (o *Story) GetImageUrlsOk() (*string, bool)`
-
-GetImageUrlsOk returns a tuple with the ImageUrls field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetImageUrls
-
-`func (o *Story) SetImageUrls(v string)`
-
-SetImageUrls sets ImageUrls field to given value.
-
-### HasImageUrls
-
-`func (o *Story) HasImageUrls() bool`
-
-HasImageUrls returns a boolean if a field has been set.
-
-### SetImageUrlsNil
-
-`func (o *Story) SetImageUrlsNil(b bool)`
-
- SetImageUrlsNil sets the value for ImageUrls to be an explicit nil
-
-### UnsetImageUrls
-`func (o *Story) UnsetImageUrls()`
-
-UnsetImageUrls ensures that no value is present for ImageUrls, not even an explicit nil
 ### GetLang
 
-`func (o *Story) GetLang() bool`
+`func (o *Story) GetLang() string`
 
 GetLang returns the Lang field if non-nil, zero value otherwise.
 
 ### GetLangOk
 
-`func (o *Story) GetLangOk() (*bool, bool)`
+`func (o *Story) GetLangOk() (*string, bool)`
 
 GetLangOk returns a tuple with the Lang field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLang
 
-`func (o *Story) SetLang(v bool)`
+`func (o *Story) SetLang(v string)`
 
 SetLang sets Lang field to given value.
 
@@ -391,31 +354,6 @@ SetLang sets Lang field to given value.
 `func (o *Story) HasLang() bool`
 
 HasLang returns a boolean if a field has been set.
-
-### GetScore
-
-`func (o *Story) GetScore() int32`
-
-GetScore returns the Score field if non-nil, zero value otherwise.
-
-### GetScoreOk
-
-`func (o *Story) GetScoreOk() (*int32, bool)`
-
-GetScoreOk returns a tuple with the Score field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetScore
-
-`func (o *Story) SetScore(v int32)`
-
-SetScore sets Score field to given value.
-
-### HasScore
-
-`func (o *Story) HasScore() bool`
-
-HasScore returns a boolean if a field has been set.
 
 ### GetDuplicatesCount
 
