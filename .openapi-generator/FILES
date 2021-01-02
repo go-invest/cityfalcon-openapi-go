@@ -1,0 +1,17 @@
+.gitignore
+.travis.yml
+README.md
+api/openapi.yaml
+api_companies.go
+client.go
+configuration.go
+docs/CompaniesApi.md
+docs/Stories.md
+docs/Story.md
+git_push.sh
+go.mod
+go.sum
+model_stories.go
+model_story.go
+response.go
+utils.go
