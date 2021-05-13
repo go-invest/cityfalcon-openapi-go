@@ -35,6 +35,8 @@ type ApiListStoriesRequest struct {
 	minScore           *string
 	foldSimilarStories *string
 	timeFilter         *string
+	assetClasses       *string
+	limit              *string
 	query              *string
 }
 
@@ -62,12 +64,20 @@ func (r ApiListStoriesRequest) TimeFilter(timeFilter string) ApiListStoriesReque
 	r.timeFilter = &timeFilter
 	return r
 }
+func (r ApiListStoriesRequest) AssetClasses(assetClasses string) ApiListStoriesRequest {
+	r.assetClasses = &assetClasses
+	return r
+}
+func (r ApiListStoriesRequest) Limit(limit string) ApiListStoriesRequest {
+	r.limit = &limit
+	return r
+}
 func (r ApiListStoriesRequest) Query(query string) ApiListStoriesRequest {
 	r.query = &query
 	return r
 }
 
-func (r ApiListStoriesRequest) Execute() (Stories, *_nethttp.Response, GenericOpenAPIError) {
+func (r ApiListStoriesRequest) Execute() (Stories, *_nethttp.Response, error) {
 	return r.ApiService.ListStoriesExecute(r)
 }
 
@@ -88,21 +98,19 @@ func (a *CompaniesApiService) ListStories(ctx _context.Context) ApiListStoriesRe
  * Execute executes the request
  * @return Stories
  */
-func (a *CompaniesApiService) ListStoriesExecute(r ApiListStoriesRequest) (Stories, *_nethttp.Response, GenericOpenAPIError) {
+func (a *CompaniesApiService) ListStoriesExecute(r ApiListStoriesRequest) (Stories, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		executionError       GenericOpenAPIError
 		localVarReturnValue  Stories
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CompaniesApiService.ListStories")
 	if err != nil {
-		executionError.error = err.Error()
-		return localVarReturnValue, nil, executionError
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/webapi/v1/stories"
@@ -111,8 +119,7 @@ func (a *CompaniesApiService) ListStoriesExecute(r ApiListStoriesRequest) (Stori
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 	if r.orderBy == nil {
-		executionError.error = "orderBy is required and must be specified"
-		return localVarReturnValue, nil, executionError
+		return localVarReturnValue, nil, reportError("orderBy is required and must be specified")
 	}
 
 	if r.categories != nil {
@@ -130,6 +137,12 @@ func (a *CompaniesApiService) ListStoriesExecute(r ApiListStoriesRequest) (Stori
 	}
 	if r.timeFilter != nil {
 		localVarQueryParams.Add("time_filter", parameterToString(*r.timeFilter, ""))
+	}
+	if r.assetClasses != nil {
+		localVarQueryParams.Add("asset_classes", parameterToString(*r.assetClasses, ""))
+	}
+	if r.limit != nil {
+		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
 	}
 	if r.query != nil {
 		localVarQueryParams.Add("query", parameterToString(*r.query, ""))
@@ -153,22 +166,19 @@ func (a *CompaniesApiService) ListStoriesExecute(r ApiListStoriesRequest) (Stori
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		executionError.error = err.Error()
-		return localVarReturnValue, nil, executionError
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		executionError.error = err.Error()
-		return localVarReturnValue, localVarHTTPResponse, executionError
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		executionError.error = err.Error()
-		return localVarReturnValue, localVarHTTPResponse, executionError
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -188,5 +198,5 @@ func (a *CompaniesApiService) ListStoriesExecute(r ApiListStoriesRequest) (Stori
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarReturnValue, localVarHTTPResponse, executionError
+	return localVarReturnValue, localVarHTTPResponse, nil
 }

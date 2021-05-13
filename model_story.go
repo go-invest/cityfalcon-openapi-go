@@ -21,7 +21,7 @@ type Story struct {
 	Uuid                 *string    `json:"uuid,omitempty"`
 	UuidTitle            *string    `json:"uuid_title,omitempty"`
 	PublishTime          *time.Time `json:"publishTime,omitempty"`
-	PublishTimeDiff      *float32   `json:"publishTimeDiff,omitempty"`
+	PublishTimeDiff      *float64   `json:"publishTimeDiff,omitempty"`
 	Title                *string    `json:"title,omitempty"`
 	Description          *string    `json:"description,omitempty"`
 	FullText             *bool      `json:"full_text,omitempty"`
@@ -47,7 +47,7 @@ type Story struct {
 	Disliked             *bool      `json:"disliked,omitempty"`
 	Bookmarked           *bool      `json:"bookmarked,omitempty"`
 	SimilarStoriesCount  *int32     `json:"similar_stories_count,omitempty"`
-	Score                *float32   `json:"_score,omitempty"`
+	Score                *float64   `json:"_score,omitempty"`
 }
 
 // NewStory instantiates a new Story object
@@ -196,9 +196,9 @@ func (o *Story) SetPublishTime(v time.Time) {
 }
 
 // GetPublishTimeDiff returns the PublishTimeDiff field value if set, zero value otherwise.
-func (o *Story) GetPublishTimeDiff() float32 {
+func (o *Story) GetPublishTimeDiff() float64 {
 	if o == nil || o.PublishTimeDiff == nil {
-		var ret float32
+		var ret float64
 		return ret
 	}
 	return *o.PublishTimeDiff
@@ -206,7 +206,7 @@ func (o *Story) GetPublishTimeDiff() float32 {
 
 // GetPublishTimeDiffOk returns a tuple with the PublishTimeDiff field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Story) GetPublishTimeDiffOk() (*float32, bool) {
+func (o *Story) GetPublishTimeDiffOk() (*float64, bool) {
 	if o == nil || o.PublishTimeDiff == nil {
 		return nil, false
 	}
@@ -222,8 +222,8 @@ func (o *Story) HasPublishTimeDiff() bool {
 	return false
 }
 
-// SetPublishTimeDiff gets a reference to the given float32 and assigns it to the PublishTimeDiff field.
-func (o *Story) SetPublishTimeDiff(v float32) {
+// SetPublishTimeDiff gets a reference to the given float64 and assigns it to the PublishTimeDiff field.
+func (o *Story) SetPublishTimeDiff(v float64) {
 	o.PublishTimeDiff = &v
 }
 
@@ -1028,9 +1028,9 @@ func (o *Story) SetSimilarStoriesCount(v int32) {
 }
 
 // GetScore returns the Score field value if set, zero value otherwise.
-func (o *Story) GetScore() float32 {
+func (o *Story) GetScore() float64 {
 	if o == nil || o.Score == nil {
-		var ret float32
+		var ret float64
 		return ret
 	}
 	return *o.Score
@@ -1038,7 +1038,7 @@ func (o *Story) GetScore() float32 {
 
 // GetScoreOk returns a tuple with the Score field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Story) GetScoreOk() (*float32, bool) {
+func (o *Story) GetScoreOk() (*float64, bool) {
 	if o == nil || o.Score == nil {
 		return nil, false
 	}
@@ -1054,8 +1054,8 @@ func (o *Story) HasScore() bool {
 	return false
 }
 
-// SetScore gets a reference to the given float32 and assigns it to the Score field.
-func (o *Story) SetScore(v float32) {
+// SetScore gets a reference to the given float64 and assigns it to the Score field.
+func (o *Story) SetScore(v float64) {
 	o.Score = &v
 }
 

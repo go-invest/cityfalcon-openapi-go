@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Uuid** | Pointer to **string** |  | [optional] 
 **UuidTitle** | Pointer to **string** |  | [optional] 
 **PublishTime** | Pointer to **time.Time** |  | [optional] 
-**PublishTimeDiff** | Pointer to **float32** |  | [optional] 
+**PublishTimeDiff** | Pointer to **float64** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **FullText** | Pointer to **bool** |  | [optional] 
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **Disliked** | Pointer to **bool** |  | [optional] 
 **Bookmarked** | Pointer to **bool** |  | [optional] 
 **SimilarStoriesCount** | Pointer to **int32** |  | [optional] 
-**Score** | Pointer to **float32** |  | [optional] 
+**Score** | Pointer to **float64** |  | [optional] 
 
 ## Methods
 
@@ -157,20 +157,20 @@ HasPublishTime returns a boolean if a field has been set.
 
 ### GetPublishTimeDiff
 
-`func (o *Story) GetPublishTimeDiff() float32`
+`func (o *Story) GetPublishTimeDiff() float64`
 
 GetPublishTimeDiff returns the PublishTimeDiff field if non-nil, zero value otherwise.
 
 ### GetPublishTimeDiffOk
 
-`func (o *Story) GetPublishTimeDiffOk() (*float32, bool)`
+`func (o *Story) GetPublishTimeDiffOk() (*float64, bool)`
 
 GetPublishTimeDiffOk returns a tuple with the PublishTimeDiff field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPublishTimeDiff
 
-`func (o *Story) SetPublishTimeDiff(v float32)`
+`func (o *Story) SetPublishTimeDiff(v float64)`
 
 SetPublishTimeDiff sets PublishTimeDiff field to given value.
 
@@ -807,20 +807,20 @@ HasSimilarStoriesCount returns a boolean if a field has been set.
 
 ### GetScore
 
-`func (o *Story) GetScore() float32`
+`func (o *Story) GetScore() float64`
 
 GetScore returns the Score field if non-nil, zero value otherwise.
 
 ### GetScoreOk
 
-`func (o *Story) GetScoreOk() (*float32, bool)`
+`func (o *Story) GetScoreOk() (*float64, bool)`
 
 GetScoreOk returns a tuple with the Score field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScore
 
-`func (o *Story) SetScore(v float32)`
+`func (o *Story) SetScore(v float64)`
 
 SetScore sets Score field to given value.
 

@@ -1,7 +1,5 @@
-module github.com/go-invest/cityfalcon-openapi-go
+module github.com/universe-venture/cityfalcon-openapi-go
 
-go 1.15
+go 1.16
 
-require (
-	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
-)
+require golang.org/x/oauth2 v0.0.0-20210427180440-81ed05c6b58c

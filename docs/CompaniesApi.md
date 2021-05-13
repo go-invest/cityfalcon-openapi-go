@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ListStories
 
-> Stories ListStories(ctx).OrderBy(orderBy).Categories(categories).Languages(languages).MinScore(minScore).FoldSimilarStories(foldSimilarStories).TimeFilter(timeFilter).Query(query).Execute()
+> Stories ListStories(ctx).OrderBy(orderBy).Categories(categories).Languages(languages).MinScore(minScore).FoldSimilarStories(foldSimilarStories).TimeFilter(timeFilter).AssetClasses(assetClasses).Limit(limit).Query(query).Execute()
 
 
 
@@ -35,12 +35,14 @@ func main() {
     minScore := "minScore_example" // string | string min_score (name or id) of the stories (optional)
     foldSimilarStories := "foldSimilarStories_example" // string | string fold_similar_stories (name or id) of the stories (optional)
     timeFilter := "timeFilter_example" // string | string time_filter (name or id) of the stories (optional)
+    assetClasses := "assetClasses_example" // string | string asset_classes (name or id) of the stories (optional)
+    limit := "limit_example" // string | string limit (name or id) of the stories (optional)
     query := "query_example" // string | string query (name or id) of the stories (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CompaniesApi.ListStories(context.Background()).OrderBy(orderBy).Categories(categories).Languages(languages).MinScore(minScore).FoldSimilarStories(foldSimilarStories).TimeFilter(timeFilter).Query(query).Execute()
-    if err.Error() != "" {
+    resp, r, err := api_client.CompaniesApi.ListStories(context.Background()).OrderBy(orderBy).Categories(categories).Languages(languages).MinScore(minScore).FoldSimilarStories(foldSimilarStories).TimeFilter(timeFilter).AssetClasses(assetClasses).Limit(limit).Query(query).Execute()
+    if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CompaniesApi.ListStories``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
@@ -66,11 +68,13 @@ Name | Type | Description  | Notes
  **minScore** | **string** | string min_score (name or id) of the stories | 
  **foldSimilarStories** | **string** | string fold_similar_stories (name or id) of the stories | 
  **timeFilter** | **string** | string time_filter (name or id) of the stories | 
+ **assetClasses** | **string** | string asset_classes (name or id) of the stories | 
+ **limit** | **string** | string limit (name or id) of the stories | 
  **query** | **string** | string query (name or id) of the stories | 
 
 ### Return type
 
-[**Stories**](stories.md)
+[**Stories**](Stories.md)
 
 ### Authorization
 
