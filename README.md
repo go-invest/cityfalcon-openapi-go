@@ -87,7 +87,6 @@ Class | Method | HTTP request | Description
  - [Metadata](docs/Metadata.md)
  - [MetadataRegular](docs/MetadataRegular.md)
  - [MetadataRegularGlobal](docs/MetadataRegularGlobal.md)
- - [MetadataRegularGlobalAttributes](docs/MetadataRegularGlobalAttributes.md)
  - [MetadataRegularGlobalGroup](docs/MetadataRegularGlobalGroup.md)
  - [MetadataRegularGlobalTicker](docs/MetadataRegularGlobalTicker.md)
  - [Stories](docs/Stories.md)

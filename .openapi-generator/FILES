@@ -9,7 +9,6 @@ docs/CompaniesApi.md
 docs/Metadata.md
 docs/MetadataRegular.md
 docs/MetadataRegularGlobal.md
-docs/MetadataRegularGlobalAttributes.md
 docs/MetadataRegularGlobalGroup.md
 docs/MetadataRegularGlobalTicker.md
 docs/Stories.md
@@ -20,7 +19,6 @@ go.sum
 model_metadata.go
 model_metadata_regular.go
 model_metadata_regular_global.go
-model_metadata_regular_global_attributes.go
 model_metadata_regular_global_group.go
 model_metadata_regular_global_ticker.go
 model_stories.go
