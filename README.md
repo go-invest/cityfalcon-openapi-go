@@ -78,11 +78,18 @@ All URIs are relative to *https://www.cityfalcon.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CompaniesApi* | [**ListMetadata**](docs/CompaniesApi.md#listmetadata) | **Get** /webapi/v1/search/metadata/items | 
 *CompaniesApi* | [**ListStories**](docs/CompaniesApi.md#liststories) | **Get** /webapi/v1/stories | 
 
 
 ## Documentation For Models
 
+ - [Metadata](docs/Metadata.md)
+ - [MetadataRegular](docs/MetadataRegular.md)
+ - [MetadataRegularGlobal](docs/MetadataRegularGlobal.md)
+ - [MetadataRegularGlobalAttributes](docs/MetadataRegularGlobalAttributes.md)
+ - [MetadataRegularGlobalGroup](docs/MetadataRegularGlobalGroup.md)
+ - [MetadataRegularGlobalTicker](docs/MetadataRegularGlobalTicker.md)
  - [Stories](docs/Stories.md)
  - [Story](docs/Story.md)
 

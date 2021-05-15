@@ -26,6 +26,133 @@ var (
 // CompaniesApiService CompaniesApi service
 type CompaniesApiService service
 
+type ApiListMetadataRequest struct {
+	ctx        _context.Context
+	ApiService *CompaniesApiService
+	query      *string
+	subsection *string
+	limit      *string
+}
+
+func (r ApiListMetadataRequest) Query(query string) ApiListMetadataRequest {
+	r.query = &query
+	return r
+}
+func (r ApiListMetadataRequest) Subsection(subsection string) ApiListMetadataRequest {
+	r.subsection = &subsection
+	return r
+}
+func (r ApiListMetadataRequest) Limit(limit string) ApiListMetadataRequest {
+	r.limit = &limit
+	return r
+}
+
+func (r ApiListMetadataRequest) Execute() (Metadata, *_nethttp.Response, error) {
+	return r.ApiService.ListMetadataExecute(r)
+}
+
+/*
+ * ListMetadata Method for ListMetadata
+ * List properties of metadata
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @return ApiListMetadataRequest
+ */
+func (a *CompaniesApiService) ListMetadata(ctx _context.Context) ApiListMetadataRequest {
+	return ApiListMetadataRequest{
+		ApiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return Metadata
+ */
+func (a *CompaniesApiService) ListMetadataExecute(r ApiListMetadataRequest) (Metadata, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Metadata
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CompaniesApiService.ListMetadata")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/webapi/v1/search/metadata/items"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+	if r.query == nil {
+		return localVarReturnValue, nil, reportError("query is required and must be specified")
+	}
+
+	if r.subsection != nil {
+		localVarQueryParams.Add("subsection", parameterToString(*r.subsection, ""))
+	}
+	localVarQueryParams.Add("query", parameterToString(*r.query, ""))
+	if r.limit != nil {
+		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiListStoriesRequest struct {
 	ctx                _context.Context
 	ApiService         *CompaniesApiService

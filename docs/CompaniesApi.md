@@ -4,8 +4,79 @@ All URIs are relative to *https://www.cityfalcon.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ListMetadata**](CompaniesApi.md#ListMetadata) | **Get** /webapi/v1/search/metadata/items | 
 [**ListStories**](CompaniesApi.md#ListStories) | **Get** /webapi/v1/stories | 
 
+
+
+## ListMetadata
+
+> Metadata ListMetadata(ctx).Query(query).Subsection(subsection).Limit(limit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    query := "query_example" // string | string query (name or id) of the metadata
+    subsection := "subsection_example" // string | string subsection (name or id) of the metadata (optional)
+    limit := "limit_example" // string | string limit (name or id) of the metadata (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.CompaniesApi.ListMetadata(context.Background()).Query(query).Subsection(subsection).Limit(limit).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CompaniesApi.ListMetadata``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListMetadata`: Metadata
+    fmt.Fprintf(os.Stdout, "Response from `CompaniesApi.ListMetadata`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListMetadataRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **string** | string query (name or id) of the metadata | 
+ **subsection** | **string** | string subsection (name or id) of the metadata | 
+ **limit** | **string** | string limit (name or id) of the metadata | 
+
+### Return type
+
+[**Metadata**](Metadata.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ListStories
