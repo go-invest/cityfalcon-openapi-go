@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **Groups** | Pointer to [**[]MetadataRegularGlobalGroup**](MetadataRegularGlobalGroup.md) |  | [optional] 
 **Tickers** | Pointer to [**[]MetadataRegularGlobalTicker**](MetadataRegularGlobalTicker.md) |  | [optional] 
 **TradingViewTicker** | Pointer to **string** |  | [optional] 
-**Figis** | Pointer to **string** |  | [optional] 
 **CompanyDomains** | Pointer to **string** |  | [optional] 
 **Score** | Pointer to **string** |  | [optional] 
 **Highlight** | Pointer to **string** |  | [optional] 
@@ -264,31 +263,6 @@ SetTradingViewTicker sets TradingViewTicker field to given value.
 `func (o *MetadataRegularGlobal) HasTradingViewTicker() bool`
 
 HasTradingViewTicker returns a boolean if a field has been set.
-
-### GetFigis
-
-`func (o *MetadataRegularGlobal) GetFigis() string`
-
-GetFigis returns the Figis field if non-nil, zero value otherwise.
-
-### GetFigisOk
-
-`func (o *MetadataRegularGlobal) GetFigisOk() (*string, bool)`
-
-GetFigisOk returns a tuple with the Figis field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFigis
-
-`func (o *MetadataRegularGlobal) SetFigis(v string)`
-
-SetFigis sets Figis field to given value.
-
-### HasFigis
-
-`func (o *MetadataRegularGlobal) HasFigis() bool`
-
-HasFigis returns a boolean if a field has been set.
 
 ### GetCompanyDomains
 

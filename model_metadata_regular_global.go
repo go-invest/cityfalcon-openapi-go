@@ -25,7 +25,6 @@ type MetadataRegularGlobal struct {
 	Groups                   *[]MetadataRegularGlobalGroup    `json:"groups,omitempty"`
 	Tickers                  *[]MetadataRegularGlobalTicker   `json:"tickers,omitempty"`
 	TradingViewTicker        *string                          `json:"tradingViewTicker,omitempty"`
-	Figis                    *string                          `json:"figis,omitempty"`
 	CompanyDomains           *string                          `json:"companyDomains,omitempty"`
 	Score                    *string                          `json:"_score,omitempty"`
 	Highlight                *string                          `json:"_highlight,omitempty"`
@@ -339,38 +338,6 @@ func (o *MetadataRegularGlobal) SetTradingViewTicker(v string) {
 	o.TradingViewTicker = &v
 }
 
-// GetFigis returns the Figis field value if set, zero value otherwise.
-func (o *MetadataRegularGlobal) GetFigis() string {
-	if o == nil || o.Figis == nil {
-		var ret string
-		return ret
-	}
-	return *o.Figis
-}
-
-// GetFigisOk returns a tuple with the Figis field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *MetadataRegularGlobal) GetFigisOk() (*string, bool) {
-	if o == nil || o.Figis == nil {
-		return nil, false
-	}
-	return o.Figis, true
-}
-
-// HasFigis returns a boolean if a field has been set.
-func (o *MetadataRegularGlobal) HasFigis() bool {
-	if o != nil && o.Figis != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFigis gets a reference to the given string and assigns it to the Figis field.
-func (o *MetadataRegularGlobal) SetFigis(v string) {
-	o.Figis = &v
-}
-
 // GetCompanyDomains returns the CompanyDomains field value if set, zero value otherwise.
 func (o *MetadataRegularGlobal) GetCompanyDomains() string {
 	if o == nil || o.CompanyDomains == nil {
@@ -591,9 +558,6 @@ func (o MetadataRegularGlobal) MarshalJSON() ([]byte, error) {
 	}
 	if o.TradingViewTicker != nil {
 		toSerialize["tradingViewTicker"] = o.TradingViewTicker
-	}
-	if o.Figis != nil {
-		toSerialize["figis"] = o.Figis
 	}
 	if o.CompanyDomains != nil {
 		toSerialize["companyDomains"] = o.CompanyDomains
